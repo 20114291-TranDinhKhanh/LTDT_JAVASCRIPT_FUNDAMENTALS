@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const dolphinsScores1 = [44, 23, 71];
+        const koalasScores1 = [65, 54, 49];
+
+        const dolphinsScores2 = [85, 54, 41];
+        const koalasScores2 = [23, 34, 27];
+
+        const calculateAverage = (scores) => {
+            const total = scores.reduce((acc, score) => acc + score, 0);
+            return total / scores.length;
+        };
+
+        const checkWinner = (dolphinsScores, koalasScores) => {
+            const dolphinsAverage = calculateAverage(dolphinsScores);
+            const koalasAverage = calculateAverage(koalasScores);
+
+            if (dolphinsAverage >= 2 * koalasAverage) {
+                console.log(`Dolphins win (${dolphinsAverage} vs. ${koalasAverage})`);
+            } else if (koalasAverage >= 2 * dolphinsAverage) {
+                console.log(`Koalas win (${koalasAverage} vs. ${dolphinsAverage})`);
+            } else {
+                console.log("No team wins");
+            }
+        };
+
+        console.log("Data 1: ");
+        checkWinner(dolphinsScores1, koalasScores1);
+
+        console.log("Data 2: ");
+        checkWinner(dolphinsScores2, koalasScores2);
+    </script>
+</body>
+
+</html>
