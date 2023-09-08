@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const dolphinsScores1 = [96, 108, 89];
+        const koalasScores1 = [88, 91, 110];
+
+        const dolphinsScoresBonus1 = [97, 112, 101];
+        const koalasScoresBonus1 = [109, 95, 123];
+
+        const dolphinsScoresBonus2 = [97, 112, 101];
+        const koalasScoresBonus2 = [109, 95, 106];
+
+        const calculateAverage = (scores) => {
+            const total = scores.reduce((acc, score) => acc + score, 0);
+            return total / scores.length;
+        };
+        const checkWinner = (dolphinsScores, koalasScores) => {
+            const dolphinsAverage = calculateAverage(dolphinsScores);
+            const koalasAverage = calculateAverage(koalasScores);
+
+            if (dolphinsAverage >= 100 && dolphinsAverage > koalasAverage) {
+                console.log(`Dolphins win average score: ${dolphinsAverage}`);
+            } else if (koalasAverage >= 100 && koalasAverage > dolphinsAverage) {
+                console.log(`Koalas win average score: ${koalasAverage}`);
+            } else if (dolphinsAverage === koalasAverage && dolphinsAverage >= 100 && koalasAverage >= 100) {
+                console.log("Draw average score at least 100");
+            } else {
+                console.log("No team wins");
+            }
+        };
+
+        console.log("Data 1: ");
+        checkWinner(dolphinsScores1, koalasScores1);
+
+        console.log("Data bonus 1: ");
+        checkWinner(dolphinsScoresBonus1, koalasScoresBonus1);
+
+        console.log("Data bonus 2: ");
+        checkWinner(dolphinsScoresBonus2, koalasScoresBonus2);
+    </script>
+</body>
+
+</html>
