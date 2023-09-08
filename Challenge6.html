@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function calcTip(bill) {
+            return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+        }
+
+        const testBill = 100;
+        const tipTestBill = calcTip(testBill);
+        console.log(`The tip for a bill of ${testBill} is ${tipTestBill}`);
+
+        const bills = [125, 555, 44];
+
+        const tips = [];
+
+        for (let i = 0; i < bills.length; i++) {
+            tips.push(calcTip(bills[i]));
+        }
+
+        const totals = [];
+
+        for (let i = 0; i < bills.length; i++) {
+            totals.push(bills[i] + tips[i]);
+        }
+
+        console.log("Bills:", bills);
+        console.log("Tips:", tips);
+        console.log("Totals:", totals);
+    </script>
+</body>
+
+</html>
